@@ -1,26 +1,16 @@
 # Azure-Databricks-Sales-Analyzer
 This project is a sales analytics pipeline built on Databricks (Azure) using PySpark. It processes and analyzes large-scale sales data, cleans inconsistencies, and generates insights such as total sales per store, sales per square foot, and yearly trends.
 
+# Objective
+Data Cleaning: Handle missing values, remove duplicates, and standardize date formats.
+Data Transformation: Join sales and store data, create new metrics, and extract meaningful information.
+Data Analysis: Identify top-performing stores and best-selling products.
+Data Storage: Save results in Parquet format for efficient querying.
+
 ## Dataset Information
 The project uses two datasets:
-sales_data.csv – Contains transactional sales data (sale_id, store_id, quantity, total_amount, sale_date).
-store_data.csv – Contains store details (store_id, store_region, store_size).
-
-# Key Features & Workflow
-1. Data Loading
-Read the sales and store datasets from Databricks FileStore into PySpark DataFrames.
-2. Data Cleaning & Preprocessing
-Handle Missing Values: Replace nulls in quantity and total_amount with 0.
-Remove Duplicates: Ensures unique transactions.
-Filter Out Invalid Data:
-Drop records where sale_id, store_id, or sale_date is missing.
-Remove negative or zero values in quantity and total_amount.
-3. Data Transformation & Feature Engineering
-Join Sales & Store Data using an inner join on store_id.
-Extract Year from sale_date to analyze sales trends over time.
-Compute Sales per Square Foot (total_amount / store_size) to measure store efficiency.
-4. Aggregation Using Spark SQL
-Create a temporary SQL table to run queries on the combined dataset.
+sales_data.csv – Contains transactional sales data (sale_id, store_id, product_id, quantity, total_amount, sale_date).
+store_data.csv – Contains store details (store_id, store_region, store_size, open_date).
 
 # Compute:
 Total Sales per Store
